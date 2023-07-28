@@ -41,5 +41,7 @@ org-mode
        "#+latex_header_extra: \\definecolor{accent4}{HTML}{" p "}" n
        "#+latex_header_extra: \\definecolor{accent5}{HTML}{" p "}" n
        "#+latex_header_extra: \\definecolor{accent6}{HTML}{" p "}" n
-       n "#+include: \"cover.org\"" n
+       "#+latex_header_extra: \\newcommand{\\minsize}{60}" n
+       "#+latex_header_extra: \\newcommand{\\maxsize}{72}" n
+       n "#+include: \"../cover.org\"" n
        )
