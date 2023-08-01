@@ -111,7 +111,7 @@
         ;; See: docs.invidious.io/instances/
         empv-invidious-instance "https://invidious.projectsegfau.lt/api/v1"))
 
-(with-eval-after-load 'org
+(with-eval-after-load 'ox-latex
    (setopt org-latex-packages-alist
            ' (("AUTO" "inputenc" t ("pdflatex"))
               ("" "lmodern" nil)
@@ -194,12 +194,8 @@
   '(text-mode org-mode markdown-mode rst-mode git-commit-mode)
   "ltex-ls")
 
-;; test
-(with-eval-after-load 'ox
-  (require 'ox-koma-letter))
-
 (use-package powershell
-  :straight (:host github :repo "jschaf/powershell.el"))
+ :straight (:host github :repo "jschaf/powershell.el"))
 
 (use-package org-brain
   :after org

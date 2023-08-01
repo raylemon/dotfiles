@@ -27,7 +27,7 @@
         ;; me-assistants ; AI based assistants (chatgpt, codepilot, ...)
         me-debug         ; Debugging tools (gdb-mi, realgud, disaster, ...)
         me-lsp        ; LSP and DAP (lsp-mode, dap-mode, consult-lsp, lsp-pyright, ccls, ...)
-        me-lisp          ; Lisps development (parinfer-rust, sly, macrostep, geiser, elisp, helpful, eros, ...)
+        me-emacs-lisp          ; Lisps development (parinfer-rust, sly, macrostep, geiser, elisp, helpful, eros, ...)
         ;; me-embedded   ; Embedded systems (arduino, openocd, bitbake, vhdl-mode, ...)
         ;; me-robot      ; Robotics stuff (ros, robot-mode, ...)
         me-data          ; Data file formats (csv, yaml, toml, json, plantuml-mode, ...)
