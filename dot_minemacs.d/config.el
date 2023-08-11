@@ -64,7 +64,13 @@
   (setq elfeed-feeds
         '("https://itsfoss.com/feed"
           "https://www.bonjourmadame.fr/feed/"
-          "https://planet.emacslife.com/atom.xml")))
+          "https://planet.emacslife.com/atom.xml"
+          "https://github.com/abougouffa/minemacs/commits/main.atom"
+          "https://lecrabeinfo.net/feed"
+          "https://korben.info/feed"
+          "https://dffd.bay12games.com/rss/index.xml"
+          "https://python.developpez.com/index/rss"
+          "https://kotlin.developpez.com/index/rss")))
 
 ;; Module: `me-org' -- Package: `org'
 (with-eval-after-load 'org

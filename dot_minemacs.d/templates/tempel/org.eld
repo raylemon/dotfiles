@@ -45,3 +45,8 @@ org-mode
        "#+latex_header_extra: \\newcommand{\\maxsize}{72}" n
        n "#+include: \"../cover.org\"" n
        )
+
+(col "#+attr_latex: :options {" p "}" n
+     "#+begin_multicols" n p
+     "\\columnbreak" n p
+     "#+end_multicols" n)
