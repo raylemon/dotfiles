@@ -200,5 +200,28 @@
   '(text-mode org-mode markdown-mode rst-mode git-commit-mode)
   "ltex-ls")
 
+;;(+eglot-register
+;;  '(python-mode python-ts-mode) "ruff-lsp")
+
+;;(+eglot-register
+;;  '(python-mode python-ts-mode) "pyright")
+
+(use-package flymake-ruff
+  :straight (:host github :repo "erickgnavar/flymake-ruff")
+  :ensure t
+  :hook
+  (python-mode . flymake-ruff-load)
+  (python-ts-mode . flymake-ruff-load))
+
+(use-package sphinx-doc
+  :straight (:host github :repo "naiquevin/sphinx-doc.el")
+  :hook
+  (python-mode . (lambda ()
+                   (require 'sphinx-doc)
+                   (sphinx-doc-mode t)))
+  (python-ts-mode . (lambda ()
+                      (require 'sphinx-doc)
+                      (sphinx-doc-mode t))))
+
 (use-package powershell
  :straight (:host github :repo "jschaf/powershell.el"))
