@@ -193,7 +193,10 @@
                 ("\\subsection{%s}" . "\\subsection*{%s}"))))
 
 
-(if os/win (setopt python-shell-interpreter "python"))
+(if os/win
+  (setopt python-shell-interpreter "python")
+  (setopt treemacs-python-executable "python"))
+
 (setopt org-confirm-babel-evaluate nil)
 
 (+eglot-register
