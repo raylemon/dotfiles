@@ -200,12 +200,6 @@
   '(text-mode org-mode markdown-mode rst-mode git-commit-mode)
   "ltex-ls")
 
-;;(+eglot-register
-;;  '(python-mode python-ts-mode) "ruff-lsp")
-
-;;(+eglot-register
-;;  '(python-mode python-ts-mode) "pyright")
-
 (use-package flymake-ruff
   :straight (:host github :repo "erickgnavar/flymake-ruff")
   :ensure t
