@@ -242,3 +242,29 @@
 
 (setopt calendar-week-start-day 1)
 (setopt calendar-date-style 'european)
+
+(use-package codeium
+	:straight (:host github :repo "Exafunction/codeium.el")
+	:config
+		(setq use-dialog-box nil)
+	:custom
+	(add-to-list 'completion-at-point-functions #'codeium-completion-at-point)
+        (setq codeium-mode-line-enable
+		(lambda (api) (not (memq api '(CancelRequest Heartbeat AcceptCompletion)))))
+
+	(add-to-list 'mode-line-format '(eval (car-safe codeium-mode-line)) t)
+
+	(setq codeium-api-enabled
+		(lambda (api)
+			(memq api '(GetCompletions Heartbeat CancelRequest GetAuthToken RegisterUser auth-redirect AcceptCompletion ))))
+
+	(defun my-codeium/document/text ()
+		(buffer-substring-no-properties (max (- (point) 3000) (point-min)) (min (+ (point) 1000) (point-max))))
+
+	(defun my-codeium/document/cursor_offset ()
+		(codeium-utf8-byte-length
+			(buffer-substring-no-properties (max (- (point) 3000 (point-min)) (point))))
+
+	(setq codeium/document/text 'my-codeium/document/text)
+	(setq codeium/document/cursor_offset 'my-codeium/document/cursor_offset))
+)
