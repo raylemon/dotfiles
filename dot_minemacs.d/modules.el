@@ -15,44 +15,45 @@
 
 ;;; List of enabled modules
 (setq minemacs-modules
-      '(me-ui            ; User interface (focus, writeroom-mode, mixed-pitch, ...)
-        me-editor        ; Editing (tempel, smartparens, unicode-fonts, ligature, ...)
-        me-daemon        ; Emacs daemon tweaks
-        me-undo          ; Better undoing (undo-fu, undo-fu-session, vundo, ...)
-        me-multi-cursors ; Multi-cursors editing (iedit, evil-mc, evil-iedit-state, ...)
-        me-vc            ; Version control (magit, forge, core-review, diff-hl, ...)
-        me-project       ; Project management (project, consult-project-extra, ...)
-        me-prog          ; Programming stuff (tree-sitter, eglot, eldoc, eldoc-box, apheleia, editorconfig, ...)
-        me-checkers      ; Static checkers (flymake, flymake-easy, ...)
-        ;; me-assistants ; AI based assistants (chatgpt, codepilot, ...)
-        me-debug         ; Debugging tools (gdb-mi, realgud, disaster, ...)
-        me-lsp        ; LSP and DAP (lsp-mode, dap-mode, consult-lsp, lsp-pyright, ccls, ...)
-        me-emacs-lisp          ; Lisps development (parinfer-rust, sly, macrostep, geiser, elisp, helpful, eros, ...)
-        ;; me-embedded   ; Embedded systems (arduino, openocd, bitbake, vhdl-mode, ...)
-        ;; me-robot      ; Robotics stuff (ros, robot-mode, ...)
-        me-data          ; Data file formats (csv, yaml, toml, json, plantuml-mode, ...)
-        ;; me-math       ; Mathematics (maxima, ess, ein, julia-mode, octave, ...)
-        ;; me-modeling   ; Modeling tools (scad-mode, ...)
-        me-org           ; Org-mode for life (org, org-contrib, org-modern, org-appear, ...)
-        me-extra         ; Extra features (better-jumper, crux, ...)
-        ;; me-notes         ; Notes & Zettelkasten (org-roam, consult-org-roam, ...)
-        me-eaf           ; EAF apps (browser, jupyter, file-sender, ...)
-        ;; me-email      ; Email (mu4e, mu4e-alert, org-msg, ...)
-        me-rss        ; News feed (elfeed, ...)
-        me-lifestyle  ; *Very* opinionated lifestyle packages (awqat, ...)
-        me-docs          ; Documents (pdf-tools, nov, ...)
-        me-calendar   ; Calendar (calfw, calfw-org, calfw-ical, ...)
-        me-latex         ; LaTeX (auctex, auctex-latexmk, reftex, bibtex, ...)
-        ;; me-biblio     ; Bibliography & citations (org-cite, citar, zotxt, ...)
-        me-natural-langs ; Natural language stuff (spell-fu, go-translate, eglot-ltex, ...)
-        me-files         ; Files and directories (dirvish, treemacs, vlf, ...)
-        me-tools         ; System tools (tramp, vterm, tldr, ssh-deploy, docker, ...)
-        me-tty           ; Emacs from terminal (xt-mouse, xclip, ...)
-        me-fun           ; Games and funny packages (xkcd, speed-type, ...)
-        me-media         ; Multimedia (empv, emms, ...)
-        ;; me-workspaces ; Workspace separation (tabspaces, tab-bar, ...)
-        me-binary        ; Display binary files in hex or decompile them (hexl, ...) ...
-        me-window))      ; Frame & window tweaks
+      '(me-ui             ; User interface (svg-lib, focus, mixed-pitch, ...)
+        me-editor         ; Editing (tempel, smartparens, ligature, ...)
+        me-daemon         ; Emacs daemon tweaks
+        me-undo           ; Better undoing (undo-fu, undo-fu-session, vundo, ...)
+        me-multi-cursors  ; Multi-cursors editing (iedit, evil-mc, evil-iedit-state, ...)
+        me-vc             ; Version control (magit, forge, core-review, diff-hl, ...)
+        me-project        ; Project management (consult-project-extra, ibuffer-project, ...)
+        me-prog           ; Programming stuff (tree-sitter, eldoc-box, apheleia, editorconfig, ...)
+        me-checkers       ; Static checkers (flymake-easy, ...)
+        me-debug          ; Debugging tools (realgud, disaster, ...)
+        ;; me-lsp         ; LSP and DAP (lsp-mode, dap-mode, consult-lsp, lsp-pyright, ccls, ...)
+        me-emacs-lisp     ; Emacs lisp development (parinfer-rust, macrostep, eros, helpful, ...)
+        ;; me-common-lisp ; Common Lisp development (sly, sly-quicklisp, ...)
+        ;; me-scheme      ; Scheme development (racket-mode, geiser, ...)
+        ;; me-clojure     ; Clojure development (clojure-mode, cider, ...)
+        ;; me-embedded    ; Embedded systems (arduino, openocd, bitbake, ...)
+        ;; me-robot       ; Robotics stuff (ros, robot-mode, ...)
+        me-data           ; Data file formats (csv, yaml, toml, json, plantuml-mode, ...)
+        ;; me-math        ; Mathematics (maxima, ess, ein, julia-mode, ...)
+        ;; me-modeling    ; Modeling tools (scad-mode, ...)
+        me-org            ; Org-mode for life (org-contrib, org-modern, org-appear, ...)
+        me-extra          ; Extra features (better-jumper, crux, ...)
+        me-notes          ; Notes & Zettelkasten (denote, ...)
+        ;; me-email       ; Email (mu4e, mu4e-alert, org-msg, ...)
+        ;; me-rss         ; News feed (elfeed, ...)
+        ;; me-lifestyle   ; *Very* opinionated lifestyle packages (awqat, ...)
+        me-docs           ; Documents (pdf-tools, nov, ...)
+        ;; me-calendar    ; Calendar (calfw, calfw-org, calfw-ical, ...)
+        me-latex          ; LaTeX (auctex, auctex-latexmk, ...)
+        ;; me-biblio      ; Bibliography & citations (citar, zotxt, ...)
+        me-natural-langs  ; Natural language stuff (spell-fu, go-translate, eglot-ltex, ...)
+        me-files          ; Files and directories (dirvish, treemacs, vlf, ...)
+        me-tools          ; System tools (vterm, tldr, ssh-deploy, docker, ...)
+        me-tty            ; Emacs from terminal (xt-mouse, xclip, ...)
+        me-fun            ; Games and funny packages (xkcd, speed-type, ...)
+        me-media          ; Multimedia (empv, emms, ...)
+        ;; me-workspaces  ; Workspace separation (tabspaces, ...)
+        me-binary         ; Display binary files in hex or decompile them
+        me-window))       ; Frame & window tweaks
 
 ;;; List of disabled packages
 ;; You can set `minemacs-disabled-packages' to disable some packages. For
@@ -67,17 +68,23 @@
 ;; otherwise it will get installed as a dependency.
 ;;
 ;; You can also `push' (or `add-to-list') multiple packages at once (as a list).
-;; For example, to completely disable `iedit', you can use:
+;; For example, to completely disable `iedit' and its dependencies
+;; `evil-multiedit' and `evil-iedit-state', you can use:
 ;; (push '(iedit evil-multiedit evil-iedit-state) minemacs-disabled-packages)
 
 ;;; Using the obsolete modules
-;; You can use the obsolete configurations by adding the `obsolete/me-*' modules
-;; to `minemacs-modules'. However, these modules, as their names indicate, are
-;; OBSOLETE and not supported.
+;; You can use the obsolete packages configurations by adding the
+;; `obsolete/me-*' modules to `minemacs-modules'. However, these modules, as
+;; their names indicate, are OBSOLETE and NOT SUPPORTED.
 ;; (setq minemacs-modules
 ;;       (append
 ;;        minemacs-modules
-;;        '(obsolete/me-yasnippet   ; Yasnippet (yasnippet, cape-yasnippet, yasnippet-snippets, ...)
-;;          obsolete/me-writeroom   ; Replacement for `+writing-mode' (writeroom-mode, ...)
-;;          obsolete/me-projectile  ; Project management (projectile, consult-projectile, treemacs-projectile, ...)
-;;          obsolete/me-flycheck))) ; Static checkers (flycheck, ...)
+;;        '(obsolete/me-cov           ; Show code coverage results (cov, ...)
+;;          obsolete/me-eaf           ; EAF apps (browser, jupyter, file-sender, ...)
+;;          obsolete/me-flycheck      ; Static checkers (flycheck, ...)
+;;          obsolete/me-org-roam      ; Org roam configuration (org-roam, consult-org-roam, ...)
+;;          obsolete/me-projectile    ; Project management (projectile, consult-projectile, treemacs-projectile, ...)
+;;          obsolete/me-tree-sitter   ; Tree-sitter module configuration (this module is automatically activated for Emacs 28 or 29+ built without treesitter support)
+;;          obsolete/me-unicode-fonts ; Better Unicode management mainly for non-latin fonts
+;;          obsolete/me-writeroom     ; Replacement for `+writing-mode' (writeroom-mode, ...)
+;;          obsolete/me-yasnippet)))  ; Yasnippet (yasnippet, cape-yasnippet, yasnippet-snippets, ...)

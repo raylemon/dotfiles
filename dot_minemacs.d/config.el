@@ -19,11 +19,11 @@
  ;; - Iosevka, Iosevka Fixed Curly Slab
  ;; - IBM Plex Mono
  ;; - JetBrains Mono
- minemacs-fonts
- '(:font-family "Iosevka Fixed Curly Slab"
-   :font-size 16
-   :variable-pitch-font-family "IBM Plex Serif"
-   :variable-pitch-font-size 16))
+ (plist-put minemacs-fonts-plist
+            :default
+            '((:family "Iosevka Fixed Curly Slab" :height 130)
+              (:family "JetBrains Mono" :height 110)
+              (:family "Cascadia Code" :height 130)))
 
 ;; When `me-daemon' and `me-email' are enabled, MinEmacs will try to start
 ;; `mu4e' in background at startup. To disable this behavior, you can set
@@ -244,27 +244,27 @@
 (setopt calendar-date-style 'european)
 
 (use-package codeium
-	:straight (:host github :repo "Exafunction/codeium.el")
-	:config
-		(setq use-dialog-box nil)
-	:custom
-	(add-to-list 'completion-at-point-functions #'codeium-completion-at-point)
+        :straight (:host github :repo "Exafunction/codeium.el")
+        :config
+                (setq use-dialog-box nil)
+        :custom
+        (add-to-list 'completion-at-point-functions #'codeium-completion-at-point)
         (setq codeium-mode-line-enable
-		(lambda (api) (not (memq api '(CancelRequest Heartbeat AcceptCompletion)))))
+                (lambda (api) (not (memq api '(CancelRequest Heartbeat AcceptCompletion)))))
 
-	(add-to-list 'mode-line-format '(eval (car-safe codeium-mode-line)) t)
+        (add-to-list 'mode-line-format '(eval (car-safe codeium-mode-line)) t)
 
-	(setq codeium-api-enabled
-		(lambda (api)
-			(memq api '(GetCompletions Heartbeat CancelRequest GetAuthToken RegisterUser auth-redirect AcceptCompletion ))))
+        (setq codeium-api-enabled
+                (lambda (api)
+                        (memq api '(GetCompletions Heartbeat CancelRequest GetAuthToken RegisterUser auth-redirect AcceptCompletion ))))
 
-	(defun my-codeium/document/text ()
-		(buffer-substring-no-properties (max (- (point) 3000) (point-min)) (min (+ (point) 1000) (point-max))))
+        (defun my-codeium/document/text ()
+                (buffer-substring-no-properties (max (- (point) 3000) (point-min)) (min (+ (point) 1000) (point-max))))
 
-	(defun my-codeium/document/cursor_offset ()
-		(codeium-utf8-byte-length
-			(buffer-substring-no-properties (max (- (point) 3000 (point-min)) (point))))
+        (defun my-codeium/document/cursor_offset ()
+                (codeium-utf8-byte-length
+                        (buffer-substring-no-properties (max (- (point) 3000 (point-min)) (point))))
 
-	(setq codeium/document/text 'my-codeium/document/text)
-	(setq codeium/document/cursor_offset 'my-codeium/document/cursor_offset))
+        (setq codeium/document/text 'my-codeium/document/text)
+        (setq codeium/document/cursor_offset 'my-codeium/document/cursor_offset))
 )
