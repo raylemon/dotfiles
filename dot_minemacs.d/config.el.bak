@@ -3,8 +3,8 @@
 ;; Copyright (C) 2022-2023 Abdelhak Bougouffa
 
 ;; Personal info
-(setq user-full-name "Cédric Vanconingsloo"
-      user-mail-address (concat "cedric" "." "vanconingsloo" "@" "ifosup" "." "wavre" "." "be"))
+(setq user-full-name "Abdelhak Bougouffa"
+      user-mail-address (concat "abougouffa" "@" "fedora" "project" "." "org"))
 
 ;; Set the default GPG key ID, see "gpg --list-secret-keys"
 ;; (setq-default epa-file-encrypt-to '("XXXX"))
@@ -28,15 +28,15 @@
              (:family "Cascadia Code" :height 130)))
 
 ;; Use "Amiri" or "KacstOne" for Arabic script (the first to be found)
-;; (plist-put minemacs-fonts-plist
-;;            :arabic
-;;            '((:family "Amiri" :scale 0.9)
-;;              (:family "KacstOne")))
+(plist-put minemacs-fonts-plist
+           :arabic
+           '((:family "Amiri" :scale 0.9)
+             (:family "KacstOne")))
 
 ;; Use "LXGW WenKai Mono" for Han (Chinese) script
-;; (plist-put minemacs-fonts-plist
-;;            :han
-;;            '((:family "LXGW WenKai Mono" :scale 1.3)))
+(plist-put minemacs-fonts-plist
+           :han
+           '((:family "LXGW WenKai Mono" :scale 1.3)))
 
 ;; When `me-daemon' and `me-email' are enabled, MinEmacs will try to start
 ;; `mu4e' in background at startup. To disable this behavior, you can set
@@ -90,8 +90,8 @@
 ;; When the libvterm present in the system is too old, you can face VTERM_COLOR
 ;; related compilation errors. Thil parameter tells `vterm' to download libvterm
 ;; for you, see the FAQ at: github.com/akermu/emacs-libvterm.
-(with-eval-after-load 'vterm
-  (setq vterm-module-cmake-args "-DUSE_SYSTEM_LIBVTERM=Off"))
+;; (with-eval-after-load 'vterm
+;;   (setq vterm-module-cmake-args "-DUSE_SYSTEM_LIBVTERM=Off"))
 
 ;; Module: `me-natural-langs' -- Package: `spell-fu'
 (with-eval-after-load 'spell-fu
@@ -104,50 +104,47 @@
   ;; Add news feeds for `elfeed'
   (setq elfeed-feeds
         '("https://itsfoss.com/feed"
-          "https://github.com/abougouffa/minemacs/commits/main.atom"
+          "https://lwn.net/headlines/rss"
           "https://linuxhandbook.com/feed"
-          "https://lecrabeinfo.net/feed"
+          "https://www.omgubuntu.co.uk/feed"
           "https://this-week-in-rust.org/rss.xml"
-          "https://korben.info/feed"
-          "https://python.developpez.com/index/rss"
-          "https://kotlin.developpez.com/index/rss"
           "https://planet.emacslife.com/atom.xml")))
 
 ;; Module: `me-email' -- Package: `mu4e'
-;; (with-eval-after-load 'mu4e
+(with-eval-after-load 'mu4e
   ;; Load personal aliases, a file containing aliases, for example:
   ;; alias gmail "Firstname Lastname <some.user.name@gmail.com>"
   ;; alias work  "Firstname Lastname <some.user.name@work.com>"
 
   ;; (setq mail-personal-alias-file (concat minemacs-config-dir "private/mail-aliases.mailrc"))
 
-;;  (setq +mu4e-auto-bcc-address "always.bcc@this.email") ;; Add an email address always included as BCC
+  (setq +mu4e-auto-bcc-address "always.bcc@this.email") ;; Add an email address always included as BCC
 
   ;; Register email accounts with mu4e
   ;; Use MinEmacs' `+mu4e-register-account' helper function to register multiple accounts
-;;  (+mu4e-register-account
-;;   "Google mail" ;; Account name
-;;   "gmail" ;; Maildir
-;;   `((user-mail-address     . "account1@gmail.com")
-;;     (mu4e-sent-folder      . "/gmail/Sent Mail")
-;;     (mu4e-drafts-folder    . "/gmail/Drafts")
-;;     (mu4e-trash-folder     . "/gmail/Trash")
+  (+mu4e-register-account
+   "Google mail" ;; Account name
+   "gmail" ;; Maildir
+   `((user-mail-address     . "account1@gmail.com")
+     (mu4e-sent-folder      . "/gmail/Sent Mail")
+     (mu4e-drafts-folder    . "/gmail/Drafts")
+     (mu4e-trash-folder     . "/gmail/Trash")
      ;; These settings aren't mandatory if a `msmtp' config is used.
-;;     (smtpmail-smtp-server  . "smtp.googlemail.com")
-;;     (smtpmail-smtp-service . 587)
+     (smtpmail-smtp-server  . "smtp.googlemail.com")
+     (smtpmail-smtp-service . 587)
      ;; Define account aliases
-;;     (+mu4e-account-aliases . ("account1-alias@somesite.org"
-;;                               "account1-alias@othersite.org")
+     (+mu4e-account-aliases . ("account1-alias@somesite.org"
+                               "account1-alias@othersite.org"))
      ;; Org-msg greeting and signature
-;;     (org-msg-greeting-fmt  . "Hi%s,")
+     (org-msg-greeting-fmt  . "Hi%s,")
      ;; Generate signature
-;;     (org-msg-signature     . ,(+org-msg-make-signature
-;;                                "Regards," ;; Closing phrase
-;;                                "Firstname" ;; First name
-;;                                "Lastname" ;; Last name
-;;                                "/R&D Engineer at Some company/")
-;;   'default ;; Use it as default in a multi-accounts setting
-;;   'gmail)) ;; This is a Gmail account, store it and treat it accordingly (see `me-mu4e-gmail')
+     (org-msg-signature     . ,(+org-msg-make-signature
+                                "Regards," ;; Closing phrase
+                                "Firstname" ;; First name
+                                "Lastname" ;; Last name
+                                "/R&D Engineer at Some company/")))
+   'default ;; Use it as default in a multi-accounts setting
+   'gmail)) ;; This is a Gmail account, store it and treat it accordingly (see `me-mu4e-gmail')
 
 ;; Module: `me-org' -- Package: `org'
 (with-eval-after-load 'org
@@ -190,7 +187,19 @@
 (with-eval-after-load 'empv
   ;; Set the radio channels, you can get streams from radio-browser.info
   (setq empv-radio-channels
-        '(("Europe1" . "http://ais-live.cloud-services.paris:8000/europe1.mp3"))
+        '(("El-Bahdja FM" . "http://webradio.tda.dz:8001/ElBahdja_64K.mp3")
+          ("El-Chaabia" . "https://radio-dzair.net/proxy/chaabia?mp=/stream")
+          ("Quran Radio" . "http://stream.radiojar.com/0tpy1h0kxtzuv")
+          ("Algeria International" . "https://webradio.tda.dz/Internationale_64K.mp3")
+          ("JOW Radio" . "https://str0.creacast.com/jowradio")
+          ("Europe1" . "http://ais-live.cloud-services.paris:8000/europe1.mp3")
+          ("France Iter" . "http://direct.franceinter.fr/live/franceinter-hifi.aac")
+          ("France Info" . "http://direct.franceinfo.fr/live/franceinfo-hifi.aac")
+          ("France Culture" . "http://icecast.radiofrance.fr/franceculture-hifi.aac")
+          ("France Musique" . "http://icecast.radiofrance.fr/francemusique-hifi.aac")
+          ("FIP" . "http://icecast.radiofrance.fr/fip-hifi.aac")
+          ("Beur FM" . "http://broadcast.infomaniak.ch/beurfm-high.aac")
+          ("Skyrock" . "http://icecast.skyrock.net/s/natio_mp3_128k"))
         ;; See: docs.invidious.io/instances/
         empv-invidious-instance "https://invidious.projectsegfau.lt/api/v1"))
 
@@ -208,7 +217,7 @@
           :extends '("/opt/ros/foxy/")))))
 
 ;; Module: `me-vc' -- Package: `forge'
-;; (with-eval-after-load 'forge
+(with-eval-after-load 'forge
   ;; To setup private Gitlab instance
   ;; 1. Add this to your ~/.gitconfig
   ;; [gitlab "gitlab.private.com/api/v4"]
@@ -216,112 +225,24 @@
   ;; 2. Then create an access token on GitLab. I ticked api and write_repository, which seems to work fine so far. Put the token in ~/.authinfo.gpg
   ;; machine gitlab.private.com/api/v4 login my.user^forge password <token>
   ;; 3. Use this in your config:
-;;  (add-to-list 'forge-alist '("gitlab.private.com" "gitlab.private.com/api/v4" "gitlab.private.com" forge-gitlab-repository)))
+  (add-to-list 'forge-alist '("gitlab.private.com" "gitlab.private.com/api/v4" "gitlab.private.com" forge-gitlab-repository)))
 
 ;; Module: `me-vc' -- Package: `jiralib2'
 ;; When `jiralib2' is enabled, do some extra stuff
-;; (when (memq 'jiralib2 minemacs-configured-packages)
+(when (memq 'jiralib2 minemacs-configured-packages)
   ;; You need to set `jiralib2-url' and `jiralib2-user-login-name'
-;;  (setq jiralib2-url "https://my-jira-server.tld/"
-;;        jiralib2-user-login-name "my-username")
+  (setq jiralib2-url "https://my-jira-server.tld/"
+        jiralib2-user-login-name "my-username")
 
   ;; Add a hook on git-commit, so it adds the ticket number to the commit message
-;;  (add-hook
-;;   'git-commit-mode-hook
-;;   (defun +jira-commit-auto-insert-ticket-id-h ()
-;;     (when (and jiralib2-user-login-name
+  (add-hook
+   'git-commit-mode-hook
+   (defun +jira-commit-auto-insert-ticket-id-h ()
+     (when (and jiralib2-user-login-name
                 ;; Do not auto insert if the commit message is not empty (ex. amend)
-;;                (+first-line-empty-p)))
-;;       (goto-char (point-min))
-;;       (insert "\n")
-;;       (goto-char (point-min))
-;;       (+jira-insert-ticket-id)
-;;       (insert ": ")))
-
-(setopt calendar-week-start-day 1)
-(setopt calendar-date-style 'european)
-;; (setopt org-confirm-babel-evaluate nil)
-;; (setopt plantuml-exec-mode 'jar)
-
-
-(+eglot-register
-  '(text-mode org-mode markdown-mode rst-mode git-commit-mode)
-  "ltex-ls")
-
-(with-eval-after-load 'ox-latex
-   (setopt org-latex-packages-alist
-           ' (("AUTO" "inputenc" t ("pdflatex"))
-              ("" "lmodern" nil)
-              ("T1" "fontenc" t ("pdflatex"))
-              ("" "fontspec" t ("xelatex" "lualatex"))
-              ("AUTO" "polyglossia" t ("xelatex" "lualatex"))
-              ("AUTO" "babel" t ("pdflatex"))))
-
-   ;;KOMA
- (add-to-list 'org-latex-classes
-              '("koma-letter" "\\documentclass{scrletter}"
-                ("\\section{%s}" . "\\section*{%s}")
-                ("\\subsection{%s}" . "\\subsection*{%s}")
-                ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-                ("\\paragraph{%s}" . "\\paragraph*{%s}")
-                ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
-
- (add-to-list 'org-latex-classes
-              '("koma-article" "\\documentclass{scrartcl}"
-                ("\\section{%s}" . "\\section*{%s}")
-                ("\\subsection{%s}" . "\\subsection*{%s}")
-                ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-                ("\\paragraph{%s}" . "\\paragraph*{%s}")
-                ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
-
- (add-to-list 'org-latex-classes
-              '("cours" "\\documentclass{scrreprt}
-\\usepackage{graphicx}
-\\usepackage{array}
-\\usepackage{tabularx}
-\\usepackage{wrapfig}
-\\usepackage[normalem]{ulem}
-\\usepackage[dvipsnames,table]{xcolor}
-\\usepackage{hyperref}
-\\usepackage{tikz}
-\\usepackage{eso-pic}
-\\usepackage[framemethod=Tikz]{mdframed}
-\\usepackage{csquotes}
-\\usepackage{booktabs}
-[NO-DEFAULT-PACKAGES]
-[PACKAGES]
-[EXTRA]
-\\linespread{1.15}"
-
-                ("\\chapter{%s}" . "\\chapter*{%s}")
-                ("\\section{%s}" . "\\section*{%s}")
-                ("\\subsection{%s}" . "\\subsection*{%s}")
-                ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-                ("\\paragraph{%s}" . "\\paragraph*{%s}")
-                ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
-
- (add-to-list 'org-latex-classes
-              '("koma-report" "\\documentclass{scrreprt}"
-                ("\\part{%s}" . "\\part*{%s}")
-                ("\\chapter{%s}" . "\\chapter*{%s}")
-                ("\\section{%s}" . "\\section*{%s}")
-                ("\\subsection{%s}" . "\\subsection*{%s}")
-                ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-                ("\\paragraph{%s}" . "\\paragraph*{%s}")
-                ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
-
- (add-to-list 'org-latex-classes
-              '("koma-book" "\\documentclass[11pt]{scrbook}"
-                ("\\part{%s}" . "\\part*{%s}")
-                ("\\chapter{%s}" . "\\chapter*{%s}")
-                ("\\section{%s}" . "\\section*{%s}")
-                ("\\subsection{%s}" . "\\subsection*{%s}")
-                ("\\subsubsection{%s}" . "\\subsubsection*{%s}")))
-
- (add-to-list 'org-latex-classes
-              '("beamer" "\\documentclass[presentation]{beamer}"
-                ("\\section{%s}" . "\\section*{%s}")
-                ("\\subsection{%s}" . "\\subsection*{%s}"))))
-
-(use-package powershell
-  :straight (:host github :repo "jschaf/powershell.el"))
+                (+first-line-empty-p))
+       (goto-char (point-min))
+       (insert "\n")
+       (goto-char (point-min))
+       (+jira-insert-ticket-id)
+       (insert ": ")))))
