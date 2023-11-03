@@ -241,12 +241,13 @@
 (setopt calendar-week-start-day 1)
 (setopt calendar-date-style 'european)
 ;; (setopt org-confirm-babel-evaluate nil)
-;; (setopt plantuml-exec-mode 'jar)
+(setopt plantuml-default-exec-mode 'jar)
 
 
-(+eglot-register
-  '(text-mode org-mode markdown-mode rst-mode git-commit-mode)
-  "ltex-ls")
+(if (os/win)
+    (+eglot-register
+      '(text-mode org-mode markdown-mode rst-mode git-commit-mode)
+     "ltex-ls"))
 
 (with-eval-after-load 'ox-latex
    (setopt org-latex-packages-alist

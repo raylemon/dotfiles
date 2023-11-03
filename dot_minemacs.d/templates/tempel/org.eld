@@ -24,7 +24,8 @@ org-mode
 
 (ltex "# LTeX: language=fr")
 
-(cours "#+title: " p n
+(cours "# LTeX: language=fr" n
+       "#+title: " p n
        "#+author: Cédric Vanconingsloo" n
        "#+language: fr" n
        "#+latex_class: cours" n
@@ -45,6 +46,34 @@ org-mode
        "#+latex_header_extra: \\newcommand{\\maxsize}{72}" n
        n "#+include: \"../cover.org\"" n
        )
+
+(col "#+attr_latex: :options {" p "}" n
+     "#+begin_multicols" n p
+     "\\columnbreak" n p
+     "#+end_multicols" n)
+
+(exam "# LTeX: language=fr" n
+      "#+title: " p n
+      "#+author: Cédric Vanconingsloo" n
+      "#+language: fr" n
+      "#+options: toc:nil num:nil title:nil" n n
+      "#+latex_class: koma-article" n
+      "#+latex_compiler: xelatex" n
+      "#+latex_header: \\usepackage[a4paper,margin=2cm,includehead,headheight=2cm]{geometry}" n
+      "#+latex_header: \\usepackage{fancyhdr}" n
+      "#+latex_header: \\usepackage[french]{datenumber}" n
+      "#+latex_header_extra: \\pagenumbering{gobble}" n
+      "#+latex_header_extra: \\setdatetoday" n
+      "#+latex_header_extra: \\addtocounter{datenumber}{1}%" n
+      "#+latex_header_extra: \\setdatebynumber{\\thedatenumber}" n n
+      "#+begin_export latex" n
+      "\\pagestyle{fancy}" n
+      "\\renew_command{\\headruleskip}{80mm}" n
+      "\\renew_command{\\headrulewidth}{0pt}" n n
+      "\\fancyhead[L]{\\includegraphics[width=4cm]{d:/images/logo.png}}" n
+      "\\fancyhead[C]{" p "\\\\" p "\\\\ AS" p "}" n
+      "\\fancyhead[R]{Nom: \\rule{2cm}{.4pt} \\\\ Prénom: \\rule{2cm}{.4pt}/100 \\\\ Date: \\datedate}" n
+      "#+end_export" n)
 
 (col "#+attr_latex: :options {" p "}" n
      "#+begin_multicols" n p
