@@ -13,6 +13,7 @@ zi light zsh-users/zsh-autosuggestions
 
 zi light zsh-users/zsh-syntax-highlighting
 zi light zdharma-continuum/fast-syntax-highlighting
+zi light marlonrichert/zsh-autocomplete
 
 zi snippet OMZP::git
 zi snippet OMZP::ubuntu
